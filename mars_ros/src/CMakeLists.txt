@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 2.8)
 add_definitions(-std=c++11)
 
 # Enable extra warnings. Not needed.
-include (../cmake/FatalWarnings.cmake)
+include (../../cmake/FatalWarnings.cmake)
 ADM_EXTRA_WARNINGS()
 
 find_package(Threads)

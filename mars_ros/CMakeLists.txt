@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(mars_ros)
 
+set (CMAKE_CXX_STANDARD 11)
+
+
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
@@ -9,7 +12,9 @@ find_package(catkin REQUIRED COMPONENTS
   mars
   message_generation
   std_msgs
-)
+  )
+
+find_package(wiringPi REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -124,7 +129,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-#add_subdirectory(matrix-creator-hal/cpp/driver driver)
+add_subdirectory(matrix-creator-hal/cpp/driver driver)
 
 ## Declare a C++ library
 # add_library(mars_ros
@@ -142,12 +147,14 @@ add_executable(micarray_recorder src/micarray_recorder.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(mars_ros_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(micarray_recorder ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(mars_ros_node
-#   ${catkin_LIBRARIES}
-# )
+ target_link_libraries(micarray_recorder
+   ${catkin_LIBRARIES}
+   matrix_creator_hal
+   wiringPi
+)
 
 #############
 ## Install ##
