@@ -13,6 +13,10 @@
 #include "../matrix-creator-hal/cpp/driver/microphone_array.h"
 #include "../matrix-creator-hal/cpp/driver/wishbone_bus.h"
 
+
+#include "mars/mars.h"
+
+
 namespace hal = matrix_hal;
 
 int main() {

@@ -110,7 +110,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES mars_ros
-#  CATKIN_DEPENDS mars
+ CATKIN_DEPENDS mars
 #  DEPENDS system_lib
  DEPENDS
  geometry_msgs
