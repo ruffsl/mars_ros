@@ -119,9 +119,12 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
+include_directories(src)
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
+
+#add_subdirectory(matrix-creator-hal/cpp/driver driver)
 
 ## Declare a C++ library
 # add_library(mars_ros
@@ -135,6 +138,7 @@ include_directories(
 
 ## Declare a C++ executable
 # add_executable(mars_ros_node src/mars_ros_node.cpp)
+add_executable(micarray_recorder src/micarray_recorder.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
