@@ -22,7 +22,7 @@ int main() {
   hal::MicrophoneArray mics;
   mics.Setup(&bus);
 
-  for (auto& led : image1d.leds) led.red = 10;
+  // for (auto& led : image1d.leds) led.red = 10;
 
   uint16_t seconds_to_record = 10;
 
