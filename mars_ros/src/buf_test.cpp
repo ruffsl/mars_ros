@@ -34,11 +34,24 @@ int main(int argc, char const *argv[]) {
 
     const char* fname = "channel_all.raw";
     const char* configFile = "config/matrixcreator.cfg";
+    FILE * fp = fopen(fname, "r");
+
+    fseek(fp, 0L, SEEK_END);
     long bufsize = ftell(fp);
+    fseek(fp, 0L, SEEK_SET);
+
     int* buf = new int[bufsize];
 
-    configs->src_buf = buf;
-    args->input_buf = 'foo';
+    size_t newLen = fread(buf, sizeof(char), bufsize, fp);
+
+    //source[++newLen] = '\0'; /* Just to be safe. */
+
+
+    // for (size_t i = 0; i < bufsize; ++i) {
+    //   buf[t] =
+    // }
+
+    args->input_buf = "f";
 
     // Load arguments from the call into the arguments structure
     // printf("Loading arguments........ "); fflush(stdout);
@@ -53,6 +66,7 @@ int main(int argc, char const *argv[]) {
     // Convert these parameters to individual configurations for each object
     printf("Loading configurations... "); fflush(stdout);
     parameters2configs(cfgs, params);
+    cfgs->src_buf->buf = buf;
     printf("[OK]\n");
 
     // Initialize objects

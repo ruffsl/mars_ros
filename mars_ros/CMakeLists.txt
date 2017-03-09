@@ -115,6 +115,7 @@ catkin_package(
  DEPENDS
  geometry_msgs
  message_runtime
+ mars
 )
 
 ###########
@@ -123,7 +124,7 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-# include_directories(include)
+include_directories(include)
 include_directories(src)
 include_directories(
   ${catkin_INCLUDE_DIRS}
@@ -135,6 +136,8 @@ add_subdirectory(matrix-creator-hal/cpp/driver driver)
 # add_library(mars_ros
 #   src/${PROJECT_NAME}/mars_ros.cpp
 # )
+
+
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
