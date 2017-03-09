@@ -156,6 +156,17 @@ add_dependencies(micarray_recorder ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_
    wiringPi
 )
 
+add_executable(buf_test src/buf_test.cpp)
+
+## Add cmake target dependencies of the executable
+## same as for the library above
+add_dependencies(buf_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+## Specify libraries to link a library or executable target against
+ target_link_libraries(buf_test
+   ${catkin_LIBRARIES}
+)
+
 #############
 ## Install ##
 #############
