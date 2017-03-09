@@ -8,13 +8,13 @@ set (CMAKE_CXX_STANDARD 11)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  geometry_msgs
+  # geometry_msgs
   mars
-  message_generation
-  std_msgs
+  # message_generation
+  # std_msgs
   )
 
-find_package(wiringPi REQUIRED)
+# find_package(wiringPi REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -50,12 +50,12 @@ find_package(wiringPi REQUIRED)
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-  AudioStream.msg
-  MARSAudioSource.msg
-  SourceInfo.msg
-)
+# add_message_files(
+#   FILES
+#   AudioStream.msg
+#   MARSAudioSource.msg
+#   SourceInfo.msg
+# )
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -72,11 +72,11 @@ add_message_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  geometry_msgs
-  std_msgs  # Or other packages containing msgs
-)
+# generate_messages(
+#   DEPENDENCIES
+#   geometry_msgs
+#   std_msgs  # Or other packages containing msgs
+# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -113,9 +113,8 @@ catkin_package(
  CATKIN_DEPENDS mars
 #  DEPENDS system_lib
  DEPENDS
- geometry_msgs
- message_runtime
- mars
+ # geometry_msgs
+ # message_runtime
 )
 
 ###########
@@ -124,20 +123,18 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(include)
+# include_directories(include)
 include_directories(src)
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_subdirectory(matrix-creator-hal/cpp/driver driver)
+# add_subdirectory(matrix-creator-hal/cpp/driver driver)
 
 ## Declare a C++ library
 # add_library(mars_ros
 #   src/${PROJECT_NAME}/mars_ros.cpp
 # )
-
-
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -146,18 +143,18 @@ add_subdirectory(matrix-creator-hal/cpp/driver driver)
 
 ## Declare a C++ executable
 # add_executable(mars_ros_node src/mars_ros_node.cpp)
-add_executable(micarray_recorder src/micarray_recorder.cpp)
+# add_executable(micarray_recorder src/micarray_recorder.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(micarray_recorder ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(micarray_recorder ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(micarray_recorder
-   ${catkin_LIBRARIES}
-   matrix_creator_hal
-   wiringPi
-)
+# target_link_libraries(micarray_recorder
+#    ${catkin_LIBRARIES}
+#    matrix_creator_hal
+#    wiringPi
+# )
 
 add_executable(buf_test src/buf_test.cpp)
 

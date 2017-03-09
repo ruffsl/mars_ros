@@ -1,7 +1,7 @@
-#include <mars/mars.h>
+#include <mars/include/mars/mars.h>
 #include <signal.h>
 
-#include "../src/general/profiler.h"
+#include "mars/src/general/profiler.h"
 
 static unsigned char quit;
 
