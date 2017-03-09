@@ -37,6 +37,9 @@ int main(int argc, char const *argv[]) {
     long bufsize = ftell(fp);
     int* buf = new int[bufsize];
 
+    configs->src_buf = buf;
+    args->input_buf = 'foo';
+
     // Load arguments from the call into the arguments structure
     // printf("Loading arguments........ "); fflush(stdout);
     // args2arguments(args, argc, argv);
