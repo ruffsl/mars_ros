@@ -1,7 +1,5 @@
-#include <mars/include/mars/mars.h>
+#include <mars/mars.h>
 #include <signal.h>
-
-#include "mars/src/general/profiler.h"
 
 static unsigned char quit;
 
@@ -51,7 +49,7 @@ int main(int argc, char const *argv[]) {
     //   buf[t] =
     // }
 
-    args->input_buf = "f";
+//    args->input_buf = "f";
 
     // Load arguments from the call into the arguments structure
     // printf("Loading arguments........ "); fflush(stdout);

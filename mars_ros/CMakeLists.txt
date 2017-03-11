@@ -124,7 +124,6 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
-include_directories(src)
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
@@ -144,10 +143,12 @@ include_directories(
 ## Declare a C++ executable
 # add_executable(mars_ros_node src/mars_ros_node.cpp)
 # add_executable(micarray_recorder src/micarray_recorder.cpp)
+add_executable(buf_test src/buf_test.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(micarray_recorder ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(buf_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(micarray_recorder
@@ -155,15 +156,7 @@ include_directories(
 #    matrix_creator_hal
 #    wiringPi
 # )
-
-add_executable(buf_test src/buf_test.cpp)
-
-## Add cmake target dependencies of the executable
-## same as for the library above
-add_dependencies(buf_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
- target_link_libraries(buf_test
+target_link_libraries(buf_test
    ${catkin_LIBRARIES}
 )
 
